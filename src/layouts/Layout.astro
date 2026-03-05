@@ -12,7 +12,7 @@ const { title, description = "Professional Cloud & SRE Consulting Services" } = 
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
@@ -20,7 +20,12 @@ const { title, description = "Professional Cloud & SRE Consulting Services" } = 
     <nav>
       <div class="container">
         <a href="/" class="logo">CloudSRE Consulting</a>
-        <ul>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#case-studies">Case Studies</a></li>
@@ -37,6 +42,26 @@ const { title, description = "Professional Cloud & SRE Consulting Services" } = 
     </footer>
   </body>
 </html>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle') as HTMLButtonElement;
+  const navLinks = document.querySelector('.nav-links') as HTMLUListElement;
+
+  toggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.classList.toggle('open', isOpen);
+  });
+
+  // Close menu when a nav link is clicked
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.classList.remove('open');
+    });
+  });
+</script>
 
 <style is:global>
   :root {
@@ -72,6 +97,7 @@ const { title, description = "Professional Cloud & SRE Consulting Services" } = 
     padding: 0 2rem;
   }
 
+  /* ── Nav base ── */
   nav {
     position: sticky;
     top: 0;
@@ -85,17 +111,21 @@ const { title, description = "Professional Cloud & SRE Consulting Services" } = 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 2rem;
+    padding: 1.25rem 2rem;
+    flex-wrap: wrap;
+    gap: 0;
   }
 
   .logo {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--primary);
     text-decoration: none;
+    white-space: nowrap;
   }
 
-  nav ul {
+  /* ── Desktop nav links ── */
+  .nav-links {
     display: flex;
     list-style: none;
     gap: 2rem;
@@ -122,9 +152,103 @@ const { title, description = "Professional Cloud & SRE Consulting Services" } = 
   }
 
   .cta-link:hover {
-    background: var(--primary-dark);
+    background: var(--primary-dark) !important;
   }
 
+  /* ── Hamburger button (hidden on desktop) ── */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .menu-toggle span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  /* Animate to X when open */
+  .menu-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* ── Mobile styles ── */
+  @media (max-width: 768px) {
+    .logo {
+      font-size: 1.1rem;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      width: 100%;
+      padding: 0.5rem 0 1rem;
+    }
+
+    .nav-links.open {
+      display: flex;
+    }
+
+    .nav-links li {
+      width: 100%;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+      width: 100%;
+    }
+
+    .nav-links li:last-child a {
+      border-bottom: none;
+    }
+
+    .cta-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      padding: 0.5rem 1.25rem;
+      width: auto;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    section {
+      padding: 3rem 0;
+    }
+  }
+
+  /* ── Sections ── */
   section {
     padding: 5rem 0;
   }
@@ -214,23 +338,5 @@ const { title, description = "Professional Cloud & SRE Consulting Services" } = 
   footer p {
     color: #9ca3af;
     margin: 0;
-  }
-
-  @media (max-width: 768px) {
-    nav ul {
-      gap: 1rem;
-    }
-
-    h1 {
-      font-size: 2rem;
-    }
-
-    h2 {
-      font-size: 1.75rem;
-    }
-
-    section {
-      padding: 3rem 0;
-    }
   }
 </style>

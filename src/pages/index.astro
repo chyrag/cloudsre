@@ -10,7 +10,65 @@ import Layout from '../layouts/Layout.astro';
       <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto 2rem;">
         Transform your infrastructure with proven cloud architecture and site reliability engineering expertise.
       </p>
-      <a href="#contact" class="btn">Get Started</a>
+      <a href="#does-this-sound-familiar" class="btn">Does this sound familiar?</a>
+    </div>
+  </section>
+
+  <!-- Pain Points Section -->
+  <section id="does-this-sound-familiar">
+    <div class="container">
+      <h2 class="text-center">Does this sound familiar?</h2>
+      <p style="text-align: center; max-width: 680px; margin: 0 auto 3rem; font-size: 1.1rem; color: var(--text-muted);">
+        Most teams we work with aren't failing — they're succeeding fast enough that the hard structural decisions got deferred. If any of these resonate, let's talk.
+      </p>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>🏗️ Did your infrastructure outgrow your practices?</h3>
+          <p>
+            You shipped fast, moved quick, and it worked — until it didn't. Now you're running a mix of manual
+            configs and partial automation in production, and nobody wants to touch it for fear of what breaks.
+          </p>
+        </div>
+        <div class="card">
+          <h3>🔍 Do you actually know what's deployed?</h3>
+          <p>
+            No single source of truth. Kubernetes versions drifting. EOL components lurking. IAM roles
+            nobody remembers creating. You're not sure what's in prod until something pages you at 2am.
+          </p>
+        </div>
+        <div class="card">
+          <h3>🚀 Is deployment still a manual, nerve-wracking ritual?</h3>
+          <p>
+            CI/CD exists in theory, but in practice there are manual steps, tribal knowledge, and a
+            specific person who has to be online when you ship. Deploys happen less often than they should.
+          </p>
+        </div>
+        <div class="card">
+          <h3>📈 Is growth exposing cracks in your reliability?</h3>
+          <p>
+            The platform held up at your current scale. But you've got more traffic coming, a compliance
+            audit on the horizon, or new customers with uptime SLAs — and you're not confident it'll hold.
+          </p>
+        </div>
+        <div class="card">
+          <h3>💸 Is your cloud bill growing faster than your users?</h3>
+          <p>
+            Resources provisioned for a spike that ended months ago. No tagging strategy. No rightsizing.
+            Every quarter you pay more, but it's never clear exactly why.
+          </p>
+        </div>
+        <div class="card">
+          <h3>🧠 Do you need senior SRE judgment — but not a full-time hire?</h3>
+          <p>
+            The problems are real, but hiring a principal-level infrastructure engineer takes months and costs
+            more than you can justify right now. You need the expertise without the overhead.
+          </p>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top: 3rem;">
+        <p style="font-size: 1.15rem; margin-bottom: 1.5rem;">If you nodded at even one of these, that's where we come in.</p>
+        <a href="#contact" class="btn">Get in touch</a>
+      </div>
     </div>
   </section>
 
@@ -20,12 +78,12 @@ import Layout from '../layouts/Layout.astro';
       <h2 class="text-center">About</h2>
       <div style="max-width: 800px; margin: 0 auto;">
         <p>
-          With over a decade of experience in cloud infrastructure and site reliability engineering, 
+          With over 25 years of experience in cloud infrastructure and site reliability engineering,
           we help organizations build scalable, resilient, and cost-effective cloud solutions.
         </p>
         <p>
-          Our mission is to empower businesses to leverage modern cloud technologies while maintaining 
-          reliability, security, and operational excellence. We partner with companies to design, 
+          Our mission is to empower businesses to leverage modern cloud technologies while maintaining
+          reliability, security, and operational excellence. We partner with companies to design,
           implement, and optimize their cloud infrastructure for long-term success.
         </p>
       </div>
@@ -40,42 +98,42 @@ import Layout from '../layouts/Layout.astro';
         <div class="card">
           <h3>Cloud Architecture</h3>
           <p>
-            Design and implementation of scalable cloud solutions on AWS, Azure, and GCP. 
+            Design and implementation of scalable cloud solutions on AWS, Azure, and GCP.
             We create architectures that grow with your business.
           </p>
         </div>
         <div class="card">
           <h3>Site Reliability Engineering</h3>
           <p>
-            Build robust monitoring, alerting, and incident response systems. Improve uptime 
+            Build robust monitoring, alerting, and incident response systems. Improve uptime
             and reduce MTTR with proven SRE practices.
           </p>
         </div>
         <div class="card">
           <h3>DevOps & CI/CD</h3>
           <p>
-            Streamline your deployment pipeline with modern CI/CD practices. Automate testing, 
+            Streamline your deployment pipeline with modern CI/CD practices. Automate testing,
             building, and deployment processes.
           </p>
         </div>
         <div class="card">
           <h3>Infrastructure as Code</h3>
           <p>
-            Implement Terraform, CloudFormation, or Pulumi to manage infrastructure reliably 
+            Implement Terraform, CloudFormation, or Pulumi to manage infrastructure reliably
             and reproducibly across environments.
           </p>
         </div>
         <div class="card">
           <h3>Cloud Migration</h3>
           <p>
-            Migrate legacy applications to the cloud with minimal downtime. We handle the 
+            Migrate legacy applications to the cloud with minimal downtime. We handle the
             complexity so you can focus on your business.
           </p>
         </div>
         <div class="card">
           <h3>Cost Optimization</h3>
           <p>
-            Identify and eliminate cloud waste. Right-size resources and implement cost 
+            Identify and eliminate cloud waste. Right-size resources and implement cost
             governance to reduce your cloud spend by 30-50%.
           </p>
         </div>
@@ -91,17 +149,17 @@ import Layout from '../layouts/Layout.astro';
         <div class="card">
           <h3>E-commerce Platform Scaling</h3>
           <p><strong>Challenge:</strong> A rapidly growing e-commerce company struggled with downtime during peak traffic.</p>
-          <p><strong>Solution:</strong> Implemented auto-scaling infrastructure on AWS with containerized microservices, 
+          <p><strong>Solution:</strong> Implemented auto-scaling infrastructure on AWS with containerized microservices,
           CloudFront CDN, and comprehensive monitoring.</p>
-          <p><strong>Outcome:</strong> Achieved 99.99% uptime during Black Friday, handled 10x traffic increase, 
+          <p><strong>Outcome:</strong> Achieved 99.99% uptime during Black Friday, handled 10x traffic increase,
           and reduced infrastructure costs by 35%.</p>
         </div>
         <div class="card">
           <h3>FinTech Security & Compliance</h3>
           <p><strong>Challenge:</strong> Financial services startup needed to achieve SOC 2 compliance while maintaining agility.</p>
-          <p><strong>Solution:</strong> Designed secure, compliant infrastructure with encryption at rest and in transit, 
+          <p><strong>Solution:</strong> Designed secure, compliant infrastructure with encryption at rest and in transit,
           comprehensive audit logging, and automated security scanning.</p>
-          <p><strong>Outcome:</strong> Achieved SOC 2 Type II certification in 6 months, passed all security audits, 
+          <p><strong>Outcome:</strong> Achieved SOC 2 Type II certification in 6 months, passed all security audits,
           and maintained deployment velocity.</p>
         </div>
       </div>
@@ -150,33 +208,17 @@ import Layout from '../layouts/Layout.astro';
   <!-- Contact Section -->
   <section id="contact">
     <div class="container">
-      <h2 class="text-center">Get In Touch</h2>
-      <div style="max-width: 600px; margin: 0 auto;">
-        <p class="text-center">
-          Ready to transform your cloud infrastructure? Let's discuss how we can help your business scale reliably and cost-effectively.
+      <h2 class="text-center">Let's Talk</h2>
+      <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 1.15rem; margin-bottom: 1rem;">
+          Describe where you are and where you want to get to. We'll respond within one business day.
         </p>
-        <form style="margin-top: 2rem;">
-          <div style="margin-bottom: 1.5rem;">
-            <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Name</label>
-            <input type="text" id="name" name="name" required 
-              style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 0.5rem; font-size: 1rem;" />
-          </div>
-          <div style="margin-bottom: 1.5rem;">
-            <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email</label>
-            <input type="email" id="email" name="email" required 
-              style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 0.5rem; font-size: 1rem;" />
-          </div>
-          <div style="margin-bottom: 1.5rem;">
-            <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message</label>
-            <textarea id="message" name="message" rows="5" required 
-              style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 0.5rem; font-size: 1rem; resize: vertical;"></textarea>
-          </div>
-          <button type="submit" class="btn" style="width: 100%;">Send Message</button>
-        </form>
-        <p class="text-center" style="margin-top: 2rem;">
-          Or email us directly at: <a href="mailto:hello@cloudsre.consulting" 
-            style="color: var(--primary); text-decoration: none; font-weight: 600;">hello@cloudsre.consulting</a>
+        <p style="margin-bottom: 2rem;">
+          No sales pitch. Just an honest conversation about whether we're the right fit for your problem.
         </p>
+        <a href="mailto:hello@cloudsre.consulting" class="btn" style="font-size: 1.1rem; padding: 0.85rem 2.5rem;">
+          hello@cloudsre.consulting
+        </a>
       </div>
     </div>
   </section>

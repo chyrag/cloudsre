@@ -190,6 +190,38 @@ const { title, description = "Professional Cloud & SRE Consulting Services" } = 
     transform: translateY(-7px) rotate(-45deg);
   }
 
+  /* ── Base layout ── */
+  section {
+    padding: 3.5rem 0;
+  }
+
+  section:nth-child(even) {
+    background: var(--bg-alt);
+  }
+
+  h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+  }
+
   /* ── Mobile styles ── */
   @media (max-width: 768px) {
     .logo {
@@ -245,40 +277,8 @@ const { title, description = "Professional Cloud & SRE Consulting Services" } = 
     }
 
     section {
-      padding: 3rem 0;
+      padding: 2rem 0;
     }
-  }
-
-  /* ── Sections ── */
-  section {
-    padding: 5rem 0;
-  }
-
-  section:nth-child(even) {
-    background: var(--bg-alt);
-  }
-
-  h1 {
-    font-size: 3rem;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-  }
-
-  h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--text);
-  }
-
-  h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  p {
-    font-size: 1.125rem;
-    color: var(--text-light);
-    margin-bottom: 1rem;
   }
 
   .text-center {

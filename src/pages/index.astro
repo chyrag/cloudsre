@@ -172,22 +172,44 @@ import Layout from '../layouts/Layout.astro';
   <section id="case-studies">
     <div class="container">
       <h2 class="text-center">Case Studies</h2>
-      <div class="grid grid-2">
+      <div class="grid grid-3">
         <div class="card">
-          <h3>E-commerce Platform Scaling</h3>
-          <p><strong>Challenge:</strong> A rapidly growing e-commerce company struggled with downtime during peak traffic.</p>
-          <p><strong>Solution:</strong> Implemented auto-scaling infrastructure on AWS with containerized microservices,
-          CloudFront CDN, and comprehensive monitoring.</p>
-          <p><strong>Outcome:</strong> Achieved 99.99% uptime, handled 10x traffic increase,
-          and reduced infrastructure costs by 35%.</p>
+          <h3>Production Platform at an Early-Stage AI Cybersecurity Startup</h3>
+          <p><strong>Context:</strong> A small engineering team building an enterprise AI cybersecurity product for MSPs and SMEs needed a production-grade platform fast — without a dedicated infrastructure function.</p>
+          <p><strong>What we did:</strong> Architected a multi-tenant EKS cluster with namespace isolation, RBAC, and network policies. Built end-to-end GitOps using FluxCD and GitHub Actions with branch protections and security scanning. Standardised Helm chart templates across 20+ microservices and authored all infrastructure-as-code in Terraform.</p>
+          <p><strong>Outcomes:</strong></p>
+          <ul>
+            <li>Deployment time cut <strong>67%</strong> — from 45 min to 15 min</li>
+            <li>Per-service configuration effort down <strong>90%</strong> — from 2 days to 4 hours</li>
+            <li>API P99 latency improved <strong>40%</strong> through infrastructure tuning</li>
+            <li>Production readiness framework prevented <strong>8+ potential incidents</strong> before they reached users</li>
+          </ul>
         </div>
         <div class="card">
-          <h3>FinTech Security & Compliance</h3>
-          <p><strong>Challenge:</strong> Financial services startup needed to achieve SOC 2 compliance while maintaining agility.</p>
-          <p><strong>Solution:</strong> Designed secure, compliant infrastructure with encryption at rest and in transit,
-          comprehensive audit logging, and automated security scanning.</p>
-          <p><strong>Outcome:</strong> Achieved SOC 2 Type II certification in 6 months, passed all security audits,
-          and maintained deployment velocity.</p>
+          <h3>SRE Transformation & SOC 2 at a B2B SaaS Company</h3>
+          <p><strong>Context:</strong> A ~200-person B2B SaaS company processing $500M+ in annual partner transactions had grown past its informal ops practices. Reliability was inconsistent, cloud costs were climbing, and enterprise customers were asking for SOC 2.</p>
+          <p><strong>What we did:</strong> Built and led a 7-person SRE team from scratch. Migrated 200+ instances to Terraform across AWS and GCP. Implemented automated failover, on-call rotations, 40+ incident runbooks, quarterly DR drills, and OpsGenie alerting. Drove SOC 2 Type II certification end-to-end.</p>
+          <p><strong>Outcomes:</strong></p>
+          <ul>
+            <li>Infrastructure budget reduced <strong>42%</strong> — $1.2M to $700K annually</li>
+            <li>Uptime improved from <strong>99.7% to 99.95%</strong>; customer-impacting incidents down <strong>83%</strong></li>
+            <li>MTTR cut <strong>60%</strong> — from 90 min to 35 min; RPO 15 min, RTO 1 hour</li>
+            <li>Deployment errors reduced <strong>85%</strong> after IaC migration</li>
+            <li>SOC 2 Type II achieved with <strong>zero audit findings</strong>, unlocking 30+ enterprise customers</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Cloud Platform & Edge Orchestration for an IoT Company</h3>
+          <p><strong>Context:</strong> A global IoT platform needed to scale from 50 to 150+ enterprise customers while maintaining tight deployment velocity and hardening security across a large microservices footprint.</p>
+          <p><strong>What we did:</strong> Architected the full cloud platform and edge orchestration layer. Authored all infrastructure-as-code using Terragrunt and Ansible. Deployed Datadog APM across 25 microservices. Implemented HashiCorp Vault for secrets management and engineered automated disaster recovery. Developed Go microservices handling high-concurrency IoT device connections.</p>
+          <p><strong>Outcomes:</strong></p>
+          <ul>
+            <li>Scaled infrastructure <strong>300%</strong> (50 → 150+ enterprise customers) with sub-5-minute deployment velocity maintained throughout</li>
+            <li>RTO reduced <strong>88%</strong> — from 6 hours to 45 min — via DR automation with 99.9% successful recovery rate</li>
+            <li>Credential-related security incidents eliminated — <strong>6/year to zero</strong> after Vault rollout</li>
+            <li>Unplanned downtime reduced <strong>65%</strong> through Datadog APM proactive alerting</li>
+            <li>Operational toil cut <strong>80%</strong> — weekly per-engineer burden down from 20 hours to 4 hours</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -332,6 +354,18 @@ import Layout from '../layouts/Layout.astro';
 </script>
 
 <style>
+  .card ul {
+    margin: 0.5rem 0 0 1.25rem;
+    padding: 0;
+  }
+
+  .card ul li {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
+  }
+
   .email-wrapper {
     display: inline-block;
     position: relative;

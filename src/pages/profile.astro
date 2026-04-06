@@ -1,0 +1,320 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Chirag Kantharia — Cloud & SRE Consultant" description="About Chirag Kantharia — 25+ years in cloud infrastructure, site reliability engineering, and technical leadership.">
+
+  <!-- Hero / Photo + Name -->
+  <section id="profile-hero">
+    <div class="container">
+      <div class="profile-header">
+        <img
+          src="/profile-photo.jpg"
+          alt="Chirag Kantharia"
+          class="profile-photo"
+          width="200"
+          height="200"
+        />
+        <div class="profile-intro">
+          <h1>Chirag Kantharia</h1>
+          <p class="profile-tagline">Cloud Architect · SRE · Fractional CTO</p>
+          <a href="#contact" class="btn">Get in touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="prose">
+        <p>
+          I've spent over 25 years building and operating infrastructure at scale — from bare-metal
+          data centres in the early 2000s to the multi-cloud, Kubernetes-native systems that power
+          modern businesses today.
+        </p>
+        <p>
+          I founded CloudSRE Consulting to give growing companies access to the kind of senior
+          technical judgment that usually only large engineering organisations can afford. Whether
+          you need a production-ready cloud architecture, a reliable CI/CD pipeline, or an
+          experienced hand to guide your engineering team through a compliance audit, I work
+          alongside your team to get it done — without the overhead of a full-time executive hire.
+        </p>
+        <p>
+          My approach is direct: understand the business constraint first, then find the simplest
+          technical solution that holds up under real load. I've seen enough overly complex
+          architectures fail at inconvenient times to know that clarity and operational simplicity
+          are features.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <div class="container">
+      <h2>Education</h2>
+      <div class="education-list">
+        <div class="education-item">
+          <div class="education-meta">
+            <span class="degree">B.Tech, Computer Science & Engineering</span>
+            <span class="grad-year">1995–1999</span>
+          </div>
+          <div class="institution">Indian Institute of Technology Bombay (IIT Bombay)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="text-center">Let's Talk</h2>
+      <div class="contact-body">
+        <p style="font-size: 1.15rem; margin-bottom: 1rem;">
+          Describe where you are and where you want to get to. I'll respond within one business day.
+        </p>
+        <p style="margin-bottom: 2rem;">
+          No sales pitch. Just an honest conversation about whether I'm the right fit for your problem.
+        </p>
+
+        <div class="email-wrapper">
+          <button class="btn email-btn" id="emailBtn" aria-haspopup="true" aria-expanded="false">
+            hello@cloudsre.consulting
+          </button>
+          <div class="email-popover" id="emailPopover" role="menu" aria-hidden="true">
+            <a href="mailto:hello@cloudsre.consulting" class="popover-option" role="menuitem">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              Open in Mail app
+            </a>
+            <button class="popover-option" id="copyBtn" role="menuitem">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              <span id="copyLabel">Copy email address</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  const emailBtn  = document.getElementById('emailBtn')!;
+  const popover   = document.getElementById('emailPopover')!;
+  const copyBtn   = document.getElementById('copyBtn')!;
+  const copyLabel = document.getElementById('copyLabel')!;
+  const EMAIL = 'hello@cloudsre.consulting';
+
+  emailBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = popover.classList.toggle('visible');
+    emailBtn.setAttribute('aria-expanded', String(isOpen));
+    popover.setAttribute('aria-hidden', String(!isOpen));
+  });
+
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      copyLabel.textContent = 'Copied!';
+      copyBtn.classList.add('copied');
+      setTimeout(() => {
+        copyLabel.textContent = 'Copy email address';
+        copyBtn.classList.remove('copied');
+        popover.classList.remove('visible');
+        emailBtn.setAttribute('aria-expanded', 'false');
+        popover.setAttribute('aria-hidden', 'true');
+      }, 1800);
+    } catch {
+      const el = document.createElement('textarea');
+      el.value = EMAIL;
+      el.style.position = 'fixed';
+      el.style.opacity = '0';
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      copyLabel.textContent = 'Copied!';
+      setTimeout(() => {
+        copyLabel.textContent = 'Copy email address';
+        popover.classList.remove('visible');
+      }, 1800);
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!emailBtn.contains(e.target as Node) && !popover.contains(e.target as Node)) {
+      popover.classList.remove('visible');
+      emailBtn.setAttribute('aria-expanded', 'false');
+      popover.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      popover.classList.remove('visible');
+      emailBtn.setAttribute('aria-expanded', 'false');
+      popover.setAttribute('aria-hidden', 'true');
+    }
+  });
+</script>
+
+<style>
+  /* ── Profile hero ── */
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--border);
+    flex-shrink: 0;
+    background: var(--bg-alt);
+  }
+
+  .profile-intro h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .profile-tagline {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── About prose ── */
+  .prose {
+    max-width: 760px;
+  }
+
+  /* ── Education ── */
+  .education-list {
+    max-width: 760px;
+  }
+
+  .education-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .education-item:last-child {
+    border-bottom: none;
+  }
+
+  .education-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .degree {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .grad-year {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    white-space: nowrap;
+  }
+
+  .institution {
+    font-size: 1rem;
+    color: var(--primary);
+    font-weight: 500;
+  }
+
+  /* ── Contact ── */
+  .contact-body {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .email-wrapper {
+    display: inline-block;
+    position: relative;
+  }
+
+  .email-btn {
+    font-size: 1.1rem;
+    padding: 0.85rem 2.5rem;
+  }
+
+  .email-popover {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    min-width: 220px;
+    overflow: hidden;
+    z-index: 200;
+  }
+
+  .email-popover.visible {
+    display: block;
+  }
+
+  .popover-option {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s;
+    font-family: inherit;
+  }
+
+  .popover-option:not(:last-child) {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .popover-option:hover {
+    background: var(--bg-alt);
+  }
+
+  .popover-option.copied {
+    color: #16a34a;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 600px) {
+    .profile-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .profile-photo {
+      width: 140px;
+      height: 140px;
+    }
+
+    .education-meta {
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+  }
+</style>
